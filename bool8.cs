@@ -7,7 +7,7 @@ namespace Marble
     public bool Get(int index)
     {
       var i = 1 << index;
-      return ((int)_num & i) != 0;
+      return (_num & i) != 0;
     }
     
     public bool Set(int index, bool value)
@@ -15,11 +15,11 @@ namespace Marble
       var i = 1 << index;
       if (value)
       {
-        _num = (byte)((int)_num | i);
+        _num = (byte)(_num | i);
       }
       else
       {
-        _num = (byte)((int)_num & ~i);
+        _num = (byte)(_num & ~i);
       }
       
     }
@@ -27,12 +27,12 @@ namespace Marble
     public void Toggle(int index)
     {
         var i = 1 << index;
-        _num = (byte)((int)_num ^ i);
+        _num = (byte)(_num ^ i);
     }
     
     public void ToggleAll()
     {
-      _num = (byte)(~(int)num);
+      _num = (byte)(~num);
     }
   }
 }
